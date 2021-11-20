@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StatusBar } from "react-native";
 
-import { NavigationContainer } from "@react-navigation/native";
-
-import AuthRoutes from "./auth.routes";
 import AppRoutes from "./app.routes";
+import AuthRoutes from "./auth.routes";
+
+import { AuthContext } from "../contexts/auth";
 
 function Routes() {
-  return (
-    <NavigationContainer>
-      <StatusBar backgroundColor="#009ca1" />
-      <AuthRoutes />
-    </NavigationContainer>
-  );
+  const { signed } = useContext(AuthContext);
+
+  return signed ? <AppRoutes /> : <AuthRoutes />;
 }
 
 export default Routes;

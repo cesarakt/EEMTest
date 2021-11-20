@@ -1,7 +1,17 @@
 import React from "react";
+import { StatusBar } from "react-native";
 
+import { NavigationContainer } from "@react-navigation/native";
+import AuthProvider from "./src/contexts/auth";
 import Routes from "./src/routes";
 
 export default function App() {
-  return <Routes />;
+  return (
+    <NavigationContainer>
+      <AuthProvider>
+        <StatusBar backgroundColor="#009ca1" />
+        <Routes />
+      </AuthProvider>
+    </NavigationContainer>
+  );
 }

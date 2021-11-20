@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Container,
   AreaLogin,
@@ -10,11 +10,17 @@ import {
   AreaInput,
 } from "../../styles";
 
+import { AuthContext } from "../../contexts/auth";
 import { AntDesign } from "@expo/vector-icons";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { userLogin } = useContext(AuthContext);
+
+  function handleLogin() {
+    userLogin(username, password);
+  }
 
   return (
     <Container bgColor="#009ca1">
@@ -34,9 +40,10 @@ export default function Login() {
             placeholder="Senha"
             value={password}
             onChangeText={(text) => setPassword(text)}
+            secureTextEntry={true}
           />
         </AreaInput>
-        <ButtonSend onPress={() => alert("ola")}>
+        <ButtonSend onPress={handleLogin}>
           <TextButton>Entrar</TextButton>
         </ButtonSend>
       </AreaLogin>
