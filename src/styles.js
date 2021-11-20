@@ -52,3 +52,44 @@ export const TextButton = styled.Text`
   color: #0081a7;
   font-size: 22px;
 `;
+
+export const InputArea = styled.View`
+  background-color: #cbc9ce;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  align-items: center;
+  padding: 3%;
+  height: 70px;
+`;
+
+export const Input = styled.TextInput`
+  background-color: #fff;
+  width: 95%;
+  padding: 2%;
+  border-radius: 5px;
+  font-size: 18px;
+`;
+
+export const AreaList = styled.View`
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 70px;
+  padding: 3%;
+`;
+
+export const AreaSchool = styled.View.attrs({
+  borderColor: "#CCC",
+  borderBottomWidth: 1,
+})`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+`;
+
+export const NameSchool = styled.Text`
+  font-size: 22px;
+  color: #161b22;
+`;

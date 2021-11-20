@@ -8,6 +8,7 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }) {
   const navigation = useNavigation();
   const [user, setUser] = useState(null);
+  const [data, setData] = useState([]);
 
   async function userLogin(username, password) {
     await axios
@@ -25,6 +26,7 @@ function AuthProvider({ children }) {
             login: username,
             token: content.token,
           });
+          setData(content);
         } else {
           alert("Usuário e senha incorreto");
         }
@@ -36,7 +38,7 @@ function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ signed: !!user, user, userLogin }}>
+    <AuthContext.Provider value={{ signed: !!user, user, data, userLogin }}>
       {children}
     </AuthContext.Provider>
   );

@@ -10,7 +10,17 @@ const AppStack = createNativeStackNavigator();
 function AppRoutes() {
   return (
     <AppStack.Navigator>
-      <AppStack.Screen name="Session" component={Session} />
+      <AppStack.Screen
+        name="Session"
+        component={Session}
+        options={{
+          headerTitle: "Selecione a sessão Principal",
+          headerStyle: {
+            backgroundColor: "#005D95",
+          },
+          headerTintColor: "#FFF",
+        }}
+      />
       <AppStack.Screen name="Home" component={Home} />
     </AppStack.Navigator>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { StatusBar } from "react-native";
 import {
   Container,
   AreaLogin,
@@ -24,6 +25,7 @@ export default function Login() {
 
   return (
     <Container bgColor="#009ca1">
+      <StatusBar backgroundColor="#009ca1" />
       <AreaLogin>
         <Title>Informe o usuário e a senha encaminhados pela escola</Title>
         <AreaInput>
