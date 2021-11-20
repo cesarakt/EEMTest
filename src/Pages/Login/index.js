@@ -1,10 +1,45 @@
-import React from "react";
-import { Text, View } from "react-native";
+import React, { useState } from "react";
+import {
+  Container,
+  AreaLogin,
+  Title,
+  InputUser,
+  InputPassword,
+  ButtonSend,
+  TextButton,
+  AreaInput,
+} from "../../styles";
+
+import { AntDesign } from "@expo/vector-icons";
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
-    <View>
-      <Text>Login</Text>
-    </View>
+    <Container bgColor="#009ca1">
+      <AreaLogin>
+        <Title>Informe o usuário e a senha encaminhados pela escola</Title>
+        <AreaInput>
+          <AntDesign name="user" size={24} color="#FFF" />
+          <InputUser
+            placeholder="Usuário"
+            value={username}
+            onChangeText={(text) => setUsername(text)}
+          />
+        </AreaInput>
+        <AreaInput>
+          <AntDesign name="lock1" size={24} color="#FFF" />
+          <InputPassword
+            placeholder="Senha"
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+          />
+        </AreaInput>
+        <ButtonSend onPress={() => alert("ola")}>
+          <TextButton>Entrar</TextButton>
+        </ButtonSend>
+      </AreaLogin>
+    </Container>
   );
 }
